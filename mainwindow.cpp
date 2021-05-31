@@ -3,12 +3,14 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QApplication>
+#include <QDebug>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+bool isPracticeStarted = false;
+
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -23,4 +25,37 @@ void MainWindow::on_menuGitHub_triggered()
     QApplication::quit();
 }
 
+void MainWindow::startPractice(language lang)
+{
+    qDebug() << ((QString) "run");
 
+    if (lang == Java)
+    {
+        qDebug() << ((QString) "Java");
+        isPracticeStarted = true;
+    }
+
+    if (lang == Cpp)
+    {
+        qDebug() << ((QString) "Cpp");
+        isPracticeStarted = true;
+    }
+
+    if (isPracticeStarted)
+    {
+        qDebug() << ((QString) "true");
+        ui->bStartJava->hide();
+    }
+}
+
+void MainWindow::on_bStartJava_clicked()
+{
+    language lang = Java;
+    startPractice(lang);
+}
+
+void MainWindow::on_bStartCpp_clicked()
+{
+    language lang = Cpp;
+    startPractice(lang);
+}

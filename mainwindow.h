@@ -3,6 +3,11 @@
 
 #include <QMainWindow>
 
+enum language {
+    Java,
+    Cpp
+};
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -16,7 +21,13 @@ public:
     ~MainWindow();
 
 private slots:
+    void startPractice(language lang);
+
     void on_menuGitHub_triggered();
+
+    void on_bStartJava_clicked();
+
+    void on_bStartCpp_clicked();
 
 private:
     Ui::MainWindow *ui;
