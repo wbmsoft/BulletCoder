@@ -8,6 +8,11 @@ enum language {
     Cpp
 };
 
+enum status {
+    newly_opened,
+    practicing
+};
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -22,6 +27,8 @@ public:
 
 private slots:
     void startPractice(language lang);
+
+    void startLesson(language lang);
 
     void on_menuGitHub_triggered();
 
