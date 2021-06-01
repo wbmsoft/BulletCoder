@@ -36,5 +36,7 @@ private slots:
 
     void on_bStartCpp_clicked();
 
+    void on_bExitLesson_clicked();
+
 };
 #endif // MAINWINDOW_H

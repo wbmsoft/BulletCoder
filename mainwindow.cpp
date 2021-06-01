@@ -21,6 +21,9 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
         ui->bStartJava->setVisible(true);
 
         ui->plainLessonSource->setVisible(false);
+        ui->bStartLesson->setVisible(false);
+        ui->labelCountTime->setVisible(false);
+        ui->bExitLesson->setVisible(false);
     }
 }
 
@@ -106,8 +109,11 @@ void MainWindow::startPractice(language lang)
         // If button was pushed we hide all elements
         ui->bStartJava->hide();
         ui->bStartCpp->setVisible(false);
-        ui->plainLessonSource->setVisible(true);
 
+        ui->plainLessonSource->setVisible(true);
+        ui->bStartLesson->setVisible(true);
+        ui->labelCountTime->setVisible(true);
+        ui->bExitLesson->setVisible(true);
 
         lesson.startLesson(lang);
     }
@@ -124,3 +130,20 @@ void MainWindow::on_bStartCpp_clicked()
     language lang = Cpp;
     startPractice(lang);
 }
+
+void MainWindow::on_bExitLesson_clicked()
+{
+    ui->bStartJava->setVisible(true);
+    ui->bStartCpp->setVisible(true);
+
+    ui->plainLessonSource->setVisible(false);
+    ui->bStartLesson->setVisible(false);
+    ui->labelCountTime->setVisible(false);
+    ui->bExitLesson->setVisible(false);
+
+    isPracticeStarted = false;
+}
+
+
+
+
