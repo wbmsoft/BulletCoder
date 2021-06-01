@@ -17,7 +17,10 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->setupUi(this);
     if (!isPracticeStarted)
     {
-        ui->bStartCpp->setEnabled(false);
+        ui->bStartCpp->setVisible(true);
+        ui->bStartJava->setVisible(true);
+
+        ui->plainLessonSource->setVisible(false);
     }
 }
 
@@ -26,7 +29,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-class Lesson
+class Lesson : MainWindow
 {
 
 public:
@@ -43,10 +46,10 @@ public:
     int correctTypedCharacters;
     int wrongTypedCharacters;
 
-    void MainWindow::startLesson(language lang) {
+    void startLesson(language lang) {
         if (lang == Java)
         {
-            
+
         }
     }
 
@@ -102,7 +105,9 @@ void MainWindow::startPractice(language lang)
 
         // If button was pushed we hide all elements
         ui->bStartJava->hide();
-        ui->bStartCpp->hide();
+        ui->bStartCpp->setVisible(false);
+        ui->plainLessonSource->setVisible(true);
+
 
         lesson.startLesson(lang);
     }

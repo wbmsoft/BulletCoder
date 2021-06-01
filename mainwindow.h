@@ -22,13 +22,13 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    void startLesson(language lang);
     MainWindow(QWidget *parent = nullptr);
+    Ui::MainWindow *ui;
     ~MainWindow();
 
 private slots:
     void startPractice(language lang);
-
-    void startLesson(language lang);
 
     void on_menuGitHub_triggered();
 
@@ -36,7 +36,5 @@ private slots:
 
     void on_bStartCpp_clicked();
 
-private:
-    Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
